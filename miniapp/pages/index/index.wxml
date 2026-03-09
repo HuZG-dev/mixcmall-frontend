@@ -1,0 +1,108 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <input 
+      class="search-input" 
+      placeholder="搜索商品" 
+      bindinput="onSearchInput"
+      value="{{searchKeyword}}"
+      bindconfirm="search"
+    />
+    <view class="search-icon" bindtap="search">🔍</view>
+  </view>
+  
+  <!-- 轮播图 -->
+  <view class="banner" wx:if="{{banners.length > 0}}">
+    <swiper 
+      class="swiper" 
+      indicator-dots 
+      autoplay 
+      interval="3000" 
+      duration="500"
+      indicator-color="rgba(255,255,255,0.5)"
+      indicator-active-color="#fff"
+    >
+      <swiper-item wx:for="{{banners}}" wx:key="id">
+        <view class="banner-item">
+          <image src="{{item.image}}" class="banner-image" mode="aspectFill"></image>
+          <view class="banner-content">
+            <text class="banner-title">{{item.title}}</text>
+            <text class="banner-subtitle">{{item.subtitle}}</text>
+            <view class="banner-btn" bindtap="goToProducts">立即选购</view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  
+  <!-- 分类导航 -->
+  <view class="categories">
+    <view class="section-header">
+      <text class="section-title">商品分类</text>
+    </view>
+    <view class="category-list">
+      <view 
+        class="category-item" 
+        wx:for="{{categories}}" 
+        wx:key="id"
+        bindtap="goToCategory" 
+        data-id="{{item.id}}"
+      >
+        <!-- 如果是图片路径 -->
+        <image wx:if="{{item.icon}}" class="category-icon-img" src="{{item.icon}}" mode="aspectFit"></image>
+        <!-- 否则显示转换后的 emoji -->
+        <view wx:else class="category-icon-emoji">{{item._displayIcon}}</view>
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 热门商品 -->
+  <view class="hot-products">
+    <view class="section-header">
+      <text class="section-title">热门商品</text>
+      <text class="more-link" bindtap="goToProducts">查看更多 ></text>
+    </view>
+    <view class="product-grid">
+      <view 
+        class="product-card" 
+        wx:for="{{hotProducts}}" 
+        wx:key="id"
+        bindtap="goToProductDetail" 
+        data-id="{{item.id}}"
+      >
+        <image src="{{item.image}}" class="product-image" mode="aspectFill"></image>
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+          <view class="product-price-wrap">
+            <text class="product-price">¥{{item.price}}</text>
+            <text wx:if="{{item.originalPrice}}" class="product-original-price">¥{{item.originalPrice}}</text>
+          </view>
+          <text class="product-sales">已售 {{item.sales}} 件</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 推荐商品 -->
+  <view class="recommend-products">
+    <view class="section-header">
+      <text class="section-title">为你推荐</text>
+    </view>
+    <view class="product-grid">
+      <view 
+        class="product-card" 
+        wx:for="{{recommendProducts}}" 
+        wx:key="id"
+        bindtap="goToProductDetail" 
+        data-id="{{item.id}}"
+      >
+        <image src="{{item.image}}" class="product-image" mode="aspectFill"></image>
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+          <text class="product-price">¥{{item.price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

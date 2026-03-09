@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- 收货地址 -->
+  <view class="address-section">
+    <view class="section-title">收货地址</view>
+    <view class="address-info" bindtap="selectAddress">
+      <view class="address-icon">📍</view>
+      <view class="address-details">
+        <view class="name-phone" wx:if="{{address.name}}">
+          <text class="name">{{address.name}}</text>
+          <text class="phone">{{address.phone}}</text>
+        </view>
+        <view class="address-text" wx:if="{{address.address}}">
+          {{address.address}}
+        </view>
+        <view class="empty-hint" wx:else>
+          请选择收货地址
+        </view>
+      </view>
+      <view class="arrow">→</view>
+    </view>
+  </view>
+  
+  <!-- 商品信息 -->
+  <view class="order-items">
+    <view class="section-title">商品信息</view>
+    <view class="item" wx:for="{{orderItems}}" wx:key="id">
+      <image src="{{item.product.image || item.image}}" class="item-image" mode="aspectFill"></image>
+      <view class="item-details">
+        <text class="item-name">{{item.product.name || item.name}}</text>
+        <view class="item-price-quantity">
+          <text class="item-price">¥{{item.product.price || item.price}}</text>
+          <text class="item-quantity">×{{item.quantity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 订单金额 -->
+  <view class="order-amount">
+    <view class="amount-item">
+      <text class="label">商品总价</text>
+      <text class="value">¥{{subtotal}}</text>
+    </view>
+    <view class="amount-item">
+      <text class="label">运费</text>
+      <text class="value">¥{{shippingFee}}</text>
+    </view>
+    <view class="amount-item total">
+      <text class="label">合计</text>
+      <text class="value">¥{{totalAmount}}</text>
+    </view>
+  </view>
+  
+  <!-- 底部提交栏 -->
+  <view class="submit-bar">
+    <view class="total-price">
+      合计: ¥{{totalAmount}}
+    </view>
+    <button class="submit-btn" bindtap="submitOrder">提交订单</button>
+  </view>
+</view>

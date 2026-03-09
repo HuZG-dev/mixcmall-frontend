@@ -1,0 +1,99 @@
+.login-form {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30rpx;
+  margin-top: 100rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #333;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.input {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: #ff6700;
+}
+
+.btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+
+.btn-primary {
+  background-color: #ff6700;
+  color: #fff;
+}
+
+.btn-primary:disabled {
+  background-color: #ffb888;
+}
+
+.btn-wechat {
+  background-color: #07c160;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+}
+
+.wechat-icon {
+  font-size: 32rpx;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 40rpx 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1rpx;
+  background-color: #ddd;
+}
+
+.divider text {
+  padding: 0 20rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.form-footer {
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.form-footer text {
+  color: #ff6700;
+  font-size: 24rpx;
+}
+
+.form-footer text:hover {
+  text-decoration: underline;
+}

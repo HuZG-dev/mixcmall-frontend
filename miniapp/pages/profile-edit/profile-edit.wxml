@@ -1,0 +1,75 @@
+<view class="container">
+  <form bindsubmit="submitForm">
+    <!-- 头像上传 -->
+    <view class="form-item">
+      <view class="label">头像</view>
+      <view class="avatar-upload">
+        <image src="{{formData.avatar}}" mode="aspectFill" class="avatar"></image>
+        <button class="upload-btn" bindtap="uploadAvatar" type="primary" size="mini">更换头像</button>
+      </view>
+    </view>
+    
+    <!-- 昵称 -->
+    <view class="form-item">
+      <view class="label">昵称</view>
+      <input 
+        class="input" 
+        value="{{formData.nickname}}" 
+        placeholder="请输入昵称"
+        name="nickname"
+      />
+    </view>
+    
+    <!-- 手机号 -->
+    <view class="form-item">
+      <view class="label">手机号</view>
+      <input 
+        class="input" 
+        value="{{formData.phone}}" 
+        placeholder="请输入手机号"
+        disabled
+      />
+    </view>
+    
+    <!-- 邮箱 -->
+    <view class="form-item">
+      <view class="label">邮箱</view>
+      <input 
+        class="input" 
+        value="{{formData.email}}" 
+        placeholder="请输入邮箱"
+        name="email"
+      />
+    </view>
+    
+    <!-- 性别 -->
+    <view class="form-item">
+      <view class="label">性别</view>
+      <view class="radio-group">
+        <radio-group name="gender" value="{{formData.gender}}">
+          <label class="radio-item">
+            <radio value="male" checked="{{formData.gender === 'male'}}"></radio>
+            <text>男</text>
+          </label>
+          <label class="radio-item">
+            <radio value="female" checked="{{formData.gender === 'female'}}"></radio>
+            <text>女</text>
+          </label>
+          <label class="radio-item">
+            <radio value="secret" checked="{{formData.gender === 'secret'}}"></radio>
+            <text>保密</text>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    
+    <!-- 提交按钮 -->
+    <button 
+      class="submit-btn" 
+      form-type="submit"
+      disabled="{{loading}}"
+    >
+      {{loading ? '保存中...' : '保存修改'}}
+    </button>
+  </form>
+</view>

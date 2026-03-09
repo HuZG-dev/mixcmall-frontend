@@ -1,0 +1,48 @@
+<view class="container">
+  <!-- 商品图片 -->
+  <view class="product-images">
+    <swiper 
+      class="swiper" 
+      indicator-dots 
+      autoplay 
+      interval="3000" 
+      duration="500"
+    >
+      <swiper-item wx:for="{{product.images || []}}" wx:key="{{index}}">
+        <image src="{{item}}" class="swiper-image" mode="aspectFill"></image>
+      </swiper-item>
+      <swiper-item wx:if="{{!product.images || product.images.length === 0}}">
+        <image src="{{product.image}}" class="swiper-image" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  
+  <!-- 商品信息 -->
+  <view class="product-info">
+    <view class="price">¥{{product.price}}</view>
+    <view class="name">{{product.name}}</view>
+    <view class="desc">{{product.description}}</view>
+    <view class="sales">销量: {{product.sales}} | 库存: {{product.stock}}</view>
+  </view>
+  
+  <!-- 商品详情 -->
+  <view class="product-detail">
+    <view class="section-title">商品详情</view>
+    <view class="detail-content">
+      <rich-text nodes="{{product.detail}}"></rich-text>
+    </view>
+  </view>
+  
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="action-buttons">
+      <view class="action-btn" bindtap="addToCart">
+        <text class="btn-icon">🛒</text>
+        <text class="btn-text">加入购物车</text>
+      </view>
+      <view class="action-btn primary" bindtap="buyNow">
+        <text class="btn-text">立即购买</text>
+      </view>
+    </view>
+  </view>
+</view>

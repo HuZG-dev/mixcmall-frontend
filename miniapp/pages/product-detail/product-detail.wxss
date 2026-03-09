@@ -1,0 +1,131 @@
+/* 商品详情页样式 */
+
+/* 商品图片 */
+.product-images {
+  position: relative;
+  height: 500rpx;
+  background-color: #f5f5f5;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 商品信息 */
+.product-info {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 15rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.price {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ff6700;
+  margin-bottom: 10rpx;
+}
+
+.name {
+  font-size: 32rpx;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 15rpx;
+}
+
+.desc {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 15rpx;
+}
+
+.sales {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 商品详情 */
+.product-detail {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 100rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.detail-content {
+  font-size: 26rpx;
+  line-height: 1.6;
+  color: #333;
+}
+
+.detail-content image {
+  max-width: 100%;
+  height: auto;
+  margin: 10rpx 0;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-top: 1rpx solid #f0f0f0;
+  padding: 15rpx 20rpx;
+  box-shadow: 0 -2rpx 8rpx rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border: 2rpx solid #ff6700;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+}
+
+.action-btn .btn-icon {
+  font-size: 32rpx;
+}
+
+.action-btn .btn-text {
+  color: #ff6700;
+}
+
+.action-btn.primary {
+  background-color: #ff6700;
+  border-color: #ff6700;
+}
+
+.action-btn.primary .btn-text {
+  color: #fff;
+}
