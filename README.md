@@ -2,13 +2,13 @@
 
 一个功能完善的电商平台，包含前台商城、后台管理系统和后端API服务。
 
-![](./images/屏幕截图 2026-03-09 203247.png)
+![小程序](./images/miniappindex.png)
 
-![](./images/屏幕截图 2026-03-09 204904.png)
+![首页1](./images/index1.png)
 
-![](./images/屏幕截图 2026-03-09 204916.png)
+![首页2](./images/index2.png)
 
-![](./images/屏幕截图 2026-03-09 204926.png)
+![后台](./images/admin.png)
 
 ## 项目简介
 
