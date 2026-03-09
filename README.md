@@ -2,6 +2,14 @@
 
 一个功能完善的电商平台，包含前台商城、后台管理系统和后端API服务。
 
+![](./images/屏幕截图 2026-03-09 203247.png)
+
+![](./images/屏幕截图 2026-03-09 204904.png)
+
+![](./images/屏幕截图 2026-03-09 204916.png)
+
+![](./images/屏幕截图 2026-03-09 204926.png)
+
 ## 项目简介
 
 万象商城是一个基于前后端分离架构的电商平台，支持多店铺管理、商品管理、订单管理、用户管理等核心功能。系统采用角色权限控制，区分超级管理员和普通管理员，实现精细化的权限管理。
@@ -99,6 +107,28 @@ MixcMall/
   - 订单数量统计
   - 销售额统计
   - 数据可视化图表
+
+## 项目截图
+
+### 前台商城
+
+![前台首页](images/frontend-home.png)
+
+![商品列表](images/frontend-products.png)
+
+![购物车](images/frontend-cart.png)
+
+![个人中心](images/frontend-user.png)
+
+### 后台管理
+
+![后台登录](images/admin-login.png)
+
+![商品管理](images/admin-products.png)
+
+![订单管理](images/admin-orders.png)
+
+![数据统计](images/admin-stats.png)
 
 ## 安装和运行
 
