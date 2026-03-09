@@ -107,7 +107,14 @@ router.get('/:id', authMiddleware, async (req, res) => {
 // 创建订单
 router.post('/', authMiddleware, async (req, res) => {
   const userId = req.user.id
-  const { productId, quantity, addressId, paymentMethod, remark } = req.body
+  let { items, productId, quantity, addressId, paymentMethod, remark } = req.body
+  
+  // 处理前端发送的items数组格式
+  if (items && Array.isArray(items) && items.length > 0) {
+    const firstItem = items[0]
+    productId = firstItem.productId
+    quantity = firstItem.quantity
+  }
   
   if (!productId) {
     return res.json({ code: 400, message: '请选择商品' })

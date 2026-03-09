@@ -156,6 +156,13 @@ router.get('/info', authMiddleware, async (req, res) => {
     }
     
     const user = rows[0]
+    // 将数据库中的gender整数值转换为前端期望的字符串格式：1=male, 2=female, 0=secret
+    let genderString = 'secret'
+    if (user.gender === 1) {
+      genderString = 'male'
+    } else if (user.gender === 2) {
+      genderString = 'female'
+    }
     res.json({
       code: 200,
       data: {
@@ -165,7 +172,7 @@ router.get('/info', authMiddleware, async (req, res) => {
         email: user.email || '',
         avatar: user.avatar || '',
         nickname: user.nickname || '',
-        gender: user.gender || 'secret',
+        gender: genderString,
         birthday: user.birthday || ''
       }
     })
@@ -219,11 +226,26 @@ router.put('/info', authMiddleware, async (req, res) => {
     }
     if (gender !== undefined) {
       updateFields.push('gender = ?')
-      updateValues.push(gender)
+      // 将前端的gender值转换为整数：male=1, female=2, secret=0
+      let genderValue = 0
+      if (gender === 'male') {
+        genderValue = 1
+      } else if (gender === 'female') {
+        genderValue = 2
+      }
+      updateValues.push(genderValue)
     }
     if (birthday !== undefined) {
       updateFields.push('birthday = ?')
-      updateValues.push(birthday || null)
+      // 将前端的ISO日期格式转换为MySQL期望的YYYY-MM-DD格式
+      let birthdayValue = null
+      if (birthday) {
+        const date = new Date(birthday)
+        if (!isNaN(date.getTime())) {
+          birthdayValue = date.toISOString().split('T')[0]
+        }
+      }
+      updateValues.push(birthdayValue)
     }
     
     if (updateFields.length === 0) {
@@ -240,10 +262,22 @@ router.put('/info', authMiddleware, async (req, res) => {
     // 获取更新后的用户信息
     const [rows] = await db.query('SELECT id, username, phone, email, avatar, nickname, gender, birthday FROM users WHERE id = ?', [req.user.id])
     
+    // 将数据库中的gender整数值转换为前端期望的字符串格式：1=male, 2=female, 0=secret
+    const user = rows[0]
+    let genderString = 'secret'
+    if (user.gender === 1) {
+      genderString = 'male'
+    } else if (user.gender === 2) {
+      genderString = 'female'
+    }
+    
     res.json({
       code: 200,
       message: '更新成功',
-      data: rows[0]
+      data: {
+        ...user,
+        gender: genderString
+      }
     })
   } catch (error) {
     console.error('更新用户信息失败:', error)

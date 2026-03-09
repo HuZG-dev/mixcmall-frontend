@@ -3,8 +3,10 @@ const jwt = require('jsonwebtoken')
 // JWT认证中间件
 const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization
+  console.log('认证中间件 - Authorization头:', authHeader)
   
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    console.log('认证中间件 - 缺少有效Authorization头')
     return res.status(401).json({
       code: 401,
       message: '未登录或登录已过期'
@@ -12,13 +14,16 @@ const authMiddleware = (req, res, next) => {
   }
   
   const token = authHeader.substring(7)
+  console.log('认证中间件 - 提取的token:', token)
   
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'mixcmall_secret')
+    console.log('认证中间件 - 解码的token:', decoded)
     req.user = decoded
     req.admin = decoded
     next()
   } catch (error) {
+    console.error('认证中间件 - token验证失败:', error)
     return res.status(401).json({
       code: 401,
       message: 'token无效或已过期'
