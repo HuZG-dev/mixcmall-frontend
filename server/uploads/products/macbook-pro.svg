@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
-  <rect width="400" height="400" fill="#f5f5f5"/>
-  <rect x="60" y="80" width="280" height="180" rx="10" fill="#c0c0c0"/>
-  <rect x="75" y="95" width="250" height="150" rx="5" fill="#2a2a2a"/>
-  <ellipse cx="200" cy="103" rx="5" ry="5" fill="#333"/>
-  <rect x="80" y="260" width="240" height="15" rx="3" fill="#a0a0a0"/>
-  <rect x="60" y="275" width="280" height="8" rx="2" fill="#888"/>
-  <text x="200" y="340" text-anchor="middle" font-family="Arial" font-size="18" fill="#333">MacBook Pro</text>
-</svg>

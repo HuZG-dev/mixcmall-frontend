@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
-  <rect width="400" height="400" fill="#f5f5f5"/>
-  <path d="M120,280 L150,120 L200,100 L250,120 L280,280 Z" fill="#1a1a1a"/>
-  <path d="M150,280 L165,180 L200,170 L235,180 L250,280 Z" fill="#fff"/>
-  <ellipse cx="200" cy="280" rx="80" ry="20" fill="#333"/>
-  <path d="M130,100 Q200,60 270,100" stroke="#ff5722" stroke-width="8" fill="none"/>
-  <text x="200" y="340" text-anchor="middle" font-family="Arial" font-size="18" fill="#333">Nike 运动鞋</text>
-</svg>
